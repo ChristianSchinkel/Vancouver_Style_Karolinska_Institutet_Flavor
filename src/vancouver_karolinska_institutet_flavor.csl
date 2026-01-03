@@ -2,8 +2,8 @@
 <style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0" demote-non-dropping-particle="sort-only" initialize-with-hyphen="false" page-range-format="minimal">
   <info>
     <title>Vancouver - Karolinska Institutet</title>
-    <id>http://www.zotero.org/styles/vancouver-karolinska-institutet</id>
-    <link href="http://www.zotero.org/styles/vancouver-karolinska-institutet" rel="self"/>
+    <id>https://github.com/ChristianSchinkel/Vancouver_Style_Karolinska_Institutet_Flavor.git</id>
+    <link href="https://github.com/ChristianSchinkel/Vancouver_Style_Karolinska_Institutet_Flavor.git" rel="self"/>
     <link href="http://www.nlm.nih.gov/bsd/uniform_requirements.html" rel="documentation"/>
     <author>
       <name>Christian Schinkel</name>
