@@ -1,4 +1,4 @@
-# Vancouver_Style_Karolinska_Institutet_Flavor
+# Vancouver Style Karolinska Institutet Flavor
 
 The center of this repo is a ".csl"-file (Citation Style Language file). This file is dedicated to import as a citation style in the Zotero App for collecting and managing citations. This style is based on Vancouver Style with some modifications for Karolinska Institutet and the Swedish Laws Reference Style.
 
