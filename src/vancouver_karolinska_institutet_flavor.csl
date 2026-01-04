@@ -338,6 +338,7 @@
       </if>
     </choose>
   </macro>
+  <!--Citation in the text-->
   <citation collapse="citation-number">
     <sort>
       <key variable="citation-number"/>
@@ -346,6 +347,7 @@
       <text variable="citation-number"/>
     </layout>
   </citation>
+  <!--Bibliography at the in the Reference list-->
   <bibliography et-al-min="7" et-al-use-first="6" second-field-align="flush">
     <layout>
       <text variable="citation-number" suffix="."/>
