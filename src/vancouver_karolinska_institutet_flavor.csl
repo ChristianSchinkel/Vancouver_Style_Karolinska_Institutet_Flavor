@@ -106,6 +106,24 @@
   </macro>
   <macro name="access">
     <choose>
+      <if variable="DOI">
+        <group delimiter=": ">
+          <text term="available at" text-case="capitalize-first"/>
+          <text variable="DOI" prefix="https://doi.org/"/>
+        </group>
+      </if>
+      <if variable="PMCID">
+        <group delimiter=": ">
+          <text term="available at" text-case="capitalize-first"/>
+          <text variable="PMCID" prefix="https://www.ncbi.nlm.nih.gov/pmc/articles/"/>
+        </group>
+      </if>
+      <if variable="PMID">
+        <group delimiter=": ">
+          <text term="available at" text-case="capitalize-first"/>
+          <text variable="PMID" prefix="https://www.ncbi.nlm.nih.gov/pubmed/"/>
+        </group>
+      </if>
       <if variable="URL">
         <group delimiter=": ">
           <text term="available at" text-case="capitalize-first"/>
