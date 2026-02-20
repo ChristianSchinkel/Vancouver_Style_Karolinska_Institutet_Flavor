@@ -80,23 +80,12 @@
   </macro>
   <macro name="access">
     <group delimiter=". ">
-      <!-- Check if note starts with Table, Figure, or Image -->
-      <choose>
-        <if variable="note">
-          <choose>
-            <if match="any" variable="note">
-              <text variable="note"/>
-            </if>
-          </choose>
-        </if>
-      </choose>
-
       <!-- Articles: DOI → PMID → ISSN → URL -->
       <choose>
         <if type="article-journal">
           <choose>
             <if variable="DOI">
-              <text variable="DOI" prefix="DOI: "/>
+              <text variable="DOI" prefix="doi: "/>
             </if>
             <else-if variable="PMID">
               <group delimiter=": ">
@@ -153,6 +142,13 @@
             <text variable="URL"/>
           </group>
         </else-if>
+      </choose>
+
+      <!-- Extra field: Image/Table/Figure [Number]. [Title]; p. [Page] -->
+      <choose>
+        <if variable="note">
+          <text variable="note"/>
+        </if>
       </choose>
     </group>
   </macro>
