@@ -37,6 +37,8 @@
     <terms>
       <term name="retrieved">available</term>
       <term name="section" form="short">sect.</term>
+      <term name="edition" form="short">ed.</term>
+      <term name="version" form="short">ver.</term>
     </terms>
   </locale>
   <macro name="author">
@@ -193,21 +195,33 @@
     </choose>
   </macro>
   <macro name="title">
-    <text variable="title"/>
     <choose>
-      <if type="article-journal article-magazine chapter paper-conference article-newspaper" match="none">
+      <if type="bill book graphic legal_case legislation motion_picture report song" match="any">
+        <text variable="title" font-style="normal"/>
         <choose>
-          <if variable="URL">
-            <text term="internet" prefix=" [" suffix="]" text-case="capitalize-first"/>
+          <if variable="system">
+            <text variable="system" prefix=" [" suffix="]"/>
           </if>
+          <else-if variable="URL">
+            <text value=" [Internet]"/>
+          </else-if>
         </choose>
         <text macro="edition" prefix=". "/>
       </if>
-    </choose>
-    <choose>
-      <if type="thesis">
-        <text variable="genre" prefix=" [" suffix="]"/>
-      </if>
+      <else-if type="webpage post-weblog" match="any">
+        <text variable="title"/>
+        <choose>
+          <if variable="system">
+            <text variable="system" prefix=" [" suffix="]"/>
+          </if>
+          <else-if variable="URL">
+            <text value=" [Internet]"/>
+          </else-if>
+        </choose>
+      </else-if>
+      <else>
+        <text variable="title"/>
+      </else>
     </choose>
   </macro>
   <macro name="edition">
@@ -323,4 +337,19 @@
       </group>
     </layout>
   </bibliography>
+  <!-- Add this to the bibliography section for software/computer program types -->
+  <else-if type="software" match="any">
+    <group delimiter=". " suffix=".">
+      <text macro="author"/>
+      <text macro="title"/>
+      <group delimiter=" ">
+        <text variable="version" prefix="ver. "/>
+        <text variable="genre" prefix="[" suffix="]"/>
+      </group>
+      <text macro="publisher"/>
+      <text macro="date"/>
+      <text macro="accessed-date"/>
+      <text macro="access"/>
+    </group>
+  </else-if>
 </style>
