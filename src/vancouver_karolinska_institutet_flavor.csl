@@ -196,7 +196,28 @@
   </macro>
   <macro name="title">
     <choose>
-      <if type="bill book graphic legal_case legislation motion_picture report song software" match="any">
+      <if type="software" match="any">
+        <group delimiter=", ">
+          <text variable="title" font-style="normal"/>
+          <choose>
+            <if variable="version">
+              <group delimiter=" ">
+                <text term="version" form="short"/>
+                <text variable="version"/>
+              </group>
+            </if>
+          </choose>
+        </group>
+        <choose>
+          <if variable="medium">
+            <text variable="medium" prefix=" [" suffix="]"/>
+          </if>
+          <else-if variable="URL">
+            <text value=" [Internet]"/>
+          </else-if>
+        </choose>
+      </if>
+      <else-if type="bill book graphic legal_case legislation motion_picture report song" match="any">
         <text variable="title" font-style="normal"/>
         <choose>
           <if variable="medium">
@@ -207,7 +228,7 @@
           </else-if>
         </choose>
         <text macro="edition" prefix=". "/>
-      </if>
+      </else-if>
       <else-if type="webpage post-weblog" match="any">
         <text variable="title"/>
         <choose>
