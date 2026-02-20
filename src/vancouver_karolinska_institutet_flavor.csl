@@ -358,19 +358,4 @@
       </group>
     </layout>
   </bibliography>
-  <!-- Add this to the bibliography section for software/computer program types -->
-  <else-if type="software" match="any">
-    <group delimiter=". " suffix=".">
-      <text macro="author"/>
-      <text macro="title"/>
-      <group delimiter=" ">
-        <text variable="version" prefix="ver. "/>
-        <text variable="genre" prefix="[" suffix="]"/>
-      </group>
-      <text macro="publisher"/>
-      <text macro="date"/>
-      <text macro="accessed-date"/>
-      <text macro="access"/>
-    </group>
-  </else-if>
 </style>

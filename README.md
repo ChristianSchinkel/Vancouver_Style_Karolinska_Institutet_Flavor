@@ -18,3 +18,9 @@ The center of this repo is a ".csl"-file (Citation Style Language file). This fi
 - Adapted for Karolinska Institutet requirements
 - Support for Swedish Laws Reference Style
 - Bilingual support (English and Swedish terms)
+- **Software, Applications, and AI Tools support** (Computer programs, Mobile applications, Large language models, Text-to-image models)
+- **Medium field support** for specifying item types (replaces [Internet] with specific medium)
+- **Enhanced identifier handling** with priority: DOI → PMID → ISSN → URL for articles; ISBN → URL for books
+- **Extra field support** for Figure/Table/Image references with page numbers
+- Version abbreviation as "ver."
+- Edition abbreviation as "ed."
