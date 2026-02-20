@@ -79,66 +79,82 @@
     </choose>
   </macro>
   <macro name="access">
-    <choose>
-      <if type="article-journal">
-        <choose>
-          <if variable="DOI">
-            <text variable="DOI" prefix="doi: "/>
-          </if>
-          <else-if variable="PMID">
-            <group delimiter=": ">
-              <text value="PMID"/>
-              <text variable="PMID"/>
-            </group>
-          </else-if>
-          <else-if variable="ISSN">
-            <group delimiter=": ">
-              <text value="ISSN"/>
-              <text variable="ISSN"/>
-            </group>
-          </else-if>
-          <else-if variable="URL">
-            <group delimiter=": ">
-              <group delimiter=" ">
-                <text term="retrieved" text-case="capitalize-first"/>
-                <text term="from"/>
-              </group>
-              <text variable="URL"/>
-            </group>
-          </else-if>
-        </choose>
-      </if>
+    <group delimiter=". ">
+      <!-- Check if note starts with Table, Figure, or Image -->
+      <choose>
+        <if variable="note">
+          <choose>
+            <if match="any" variable="note">
+              <text variable="note"/>
+            </if>
+          </choose>
+        </if>
+      </choose>
 
-      <else-if type="book" match="any">
-        <choose>
-          <if variable="ISBN">
-            <group delimiter=": ">
-              <text value="ISBN"/>
-              <text variable="ISBN"/>
-            </group>
-          </if>
-          <else-if variable="URL">
-            <group delimiter=": ">
-              <group delimiter=" ">
-                <text term="retrieved" text-case="capitalize-first"/>
-                <text term="from"/>
+      <!-- Articles: DOI → PMID → ISSN → URL -->
+      <choose>
+        <if type="article-journal">
+          <choose>
+            <if variable="DOI">
+              <text variable="DOI" prefix="DOI: "/>
+            </if>
+            <else-if variable="PMID">
+              <group delimiter=": ">
+                <text value="PMID"/>
+                <text variable="PMID"/>
               </group>
-              <text variable="URL"/>
-            </group>
-          </else-if>
-        </choose>
-      </else-if>
+            </else-if>
+            <else-if variable="ISSN">
+              <group delimiter=": ">
+                <text value="ISSN"/>
+                <text variable="ISSN"/>
+              </group>
+            </else-if>
+            <else-if variable="URL">
+              <group delimiter=": ">
+                <group delimiter=" ">
+                  <text term="retrieved" text-case="capitalize-first"/>
+                  <text term="from"/>
+                </group>
+                <text variable="URL"/>
+              </group>
+            </else-if>
+          </choose>
+        </if>
 
-      <else-if match="any" variable="URL">
-        <group delimiter=": ">
-          <group delimiter=" ">
-            <text term="retrieved" text-case="capitalize-first"/>
-            <text term="from"/>
+        <!-- Books: ISBN → URL -->
+        <else-if type="book" match="any">
+          <choose>
+            <if variable="ISBN">
+              <group delimiter=": ">
+                <text value="ISBN"/>
+                <text variable="ISBN"/>
+              </group>
+            </if>
+            <else-if variable="URL">
+              <group delimiter=": ">
+                <group delimiter=" ">
+                  <text term="retrieved" text-case="capitalize-first"/>
+                  <text term="from"/>
+                </group>
+                <text variable="URL"/>
+              </group>
+            </else-if>
+          </choose>
+        </else-if>
+
+        <!-- All other types: URL -->
+        <else-if match="any" variable="URL">
+          <group delimiter=": ">
+            <group delimiter=" ">
+              <text term="retrieved" text-case="capitalize-first"/>
+              <text term="from"/>
+            </group>
+            <text variable="URL"/>
           </group>
-          <text variable="URL"/>
-        </group>
-      </else-if>
-    </choose>
+        </else-if>
+      </choose>
+    </group>
   </macro>
   <macro name="accessed-date">
     <choose>
