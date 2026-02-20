@@ -199,8 +199,8 @@
       <if type="bill book graphic legal_case legislation motion_picture report song" match="any">
         <text variable="title" font-style="normal"/>
         <choose>
-          <if variable="system">
-            <text variable="system" prefix=" [" suffix="]"/>
+          <if variable="medium">
+            <text variable="medium" prefix=" [" suffix="]"/>
           </if>
           <else-if variable="URL">
             <text value=" [Internet]"/>
@@ -211,8 +211,8 @@
       <else-if type="webpage post-weblog" match="any">
         <text variable="title"/>
         <choose>
-          <if variable="system">
-            <text variable="system" prefix=" [" suffix="]"/>
+          <if variable="medium">
+            <text variable="medium" prefix=" [" suffix="]"/>
           </if>
           <else-if variable="URL">
             <text value=" [Internet]"/>
