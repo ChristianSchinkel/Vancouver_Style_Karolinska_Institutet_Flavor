@@ -81,18 +81,54 @@
   <macro name="access">
     <choose>
       <if type="article-journal">
-        <group delimiter=". ">
-          <text variable="DOI" prefix="doi: "/>
-          <group delimiter=" ">
-            <text term="cited" text-case="capitalize-first"/>
-            <text term="in"/>
+        <choose>
+          <if variable="DOI">
+            <text variable="DOI" prefix="doi: "/>
+          </if>
+          <else-if variable="PMID">
             <group delimiter=": ">
               <text value="PMID"/>
               <text variable="PMID"/>
             </group>
-          </group>
-        </group>
+          </else-if>
+          <else-if variable="ISSN">
+            <group delimiter=": ">
+              <text value="ISSN"/>
+              <text variable="ISSN"/>
+            </group>
+          </else-if>
+          <else-if variable="URL">
+            <group delimiter=": ">
+              <group delimiter=" ">
+                <text term="retrieved" text-case="capitalize-first"/>
+                <text term="from"/>
+              </group>
+              <text variable="URL"/>
+            </group>
+          </else-if>
+        </choose>
       </if>
+
+      <else-if type="book" match="any">
+        <choose>
+          <if variable="ISBN">
+            <group delimiter=": ">
+              <text value="ISBN"/>
+              <text variable="ISBN"/>
+            </group>
+          </if>
+          <else-if variable="URL">
+            <group delimiter=": ">
+              <group delimiter=" ">
+                <text term="retrieved" text-case="capitalize-first"/>
+                <text term="from"/>
+              </group>
+              <text variable="URL"/>
+            </group>
+          </else-if>
+        </choose>
+      </else-if>
+
       <else-if match="any" variable="URL">
         <group delimiter=": ">
           <group delimiter=" ">
