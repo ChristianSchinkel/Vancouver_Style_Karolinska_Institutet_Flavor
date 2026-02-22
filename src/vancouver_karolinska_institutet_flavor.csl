@@ -87,7 +87,7 @@
         <if type="article-journal">
           <choose>
             <if variable="DOI">
-              <text variable="DOI" prefix="doi: "/>
+              <text variable="DOI" prefix="DOI: "/>
             </if>
             <else-if variable="PMID">
               <group delimiter=": ">
