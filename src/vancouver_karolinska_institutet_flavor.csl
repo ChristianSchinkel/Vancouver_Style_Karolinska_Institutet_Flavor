@@ -217,6 +217,21 @@
           </else-if>
         </choose>
       </if>
+      <else-if type="standard" match="any">
+        <group delimiter=". ">
+          <text variable="number"/>
+          <text variable="title" font-style="normal"/>
+        </group>
+        <choose>
+          <if variable="medium">
+            <text variable="medium" prefix=" [" suffix="]"/>
+          </if>
+          <else-if variable="URL">
+            <text value=" [Internet]"/>
+          </else-if>
+        </choose>
+        <text macro="edition" prefix=". "/>
+      </else-if>
       <else-if type="bill book graphic legal_case legislation motion_picture report song" match="any">
         <text variable="title" font-style="normal"/>
         <choose>
