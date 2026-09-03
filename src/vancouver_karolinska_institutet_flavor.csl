@@ -325,7 +325,10 @@
   <macro name="journal-location">
     <choose>
       <if type="article-journal article-magazine" match="any">
-        <text variable="volume"/>
+        <group delimiter="">
+          <text variable="volume"/>
+          <text variable="issue" prefix="(" suffix=")"/>
+        </group>
       </if>
     </choose>
   </macro>
