@@ -2,9 +2,24 @@
 
 ## Introduction
 
-This guide explains how Zotero fields map to citation outputs when using the Vancouver Style - Karolinska Institutet citation style. Understanding these mappings will help you enter data correctly in Zotero to produce properly formatted citations.
+This guide explains how Zotero fields map to citation outputs when using either Vancouver Style - Karolinska Institutet CSL file. The field mappings and formatting features are shared by both variants; only the citation and reference-list numbering differs.
+
+## Style Variants
+
+| CSL file | In-text citation | Reference-list number |
+| -------- | ---------------- | --------------------- |
+| `vancouver_karolinska_institutet_flavor.csl` | `(1)` | `1.` |
+| `vancouver_karolinska_institutet_flavor_sqrd.csl` | `[1]` | `[1]` |
+
+Choose the file that matches the numbering format required by your publication or institution.
 
 ## General Principles
+
+### Citation and Bibliography Numbering
+
+- The square-bracket variant uses `[1]`, `[2]`, `[3]` for in-text citations.
+- In the square-bracket variant, reference-list entries also use square brackets: `[1] Author. Title...`
+- The standard variant uses `(1)`, `(2)`, `(3)` for in-text citations and `1.`, `2.`, `3.` in the reference list.
 
 ### Author Name Formatting
 
@@ -66,7 +81,7 @@ This guide explains how Zotero fields map to citation outputs when using the Van
 **Formatted Citation:**
 
 ```text
-Andersson L, Svensson O. Analysis of clinical trials. Med J. 2019;22(3):145-9.
+[1] Andersson L, Svensson O. Analysis of clinical trials. Med J. 2019;22(3):145-9.
 ```
 
 ### Journal Articles - Special Notes
@@ -110,7 +125,7 @@ Andersson L, Svensson O. Analysis of clinical trials. Med J. 2019;22(3):145-9.
 **Formatted Citation:**
 
 ```text
-Smith J, Brown R. Introduction to microbiology. 2nd ed. London: Academic Press; 2020.
+[1] Smith J, Brown R. Introduction to microbiology. 2nd ed. London: Academic Press; 2020.
 ```
 
 ### Electronic Book Example
@@ -128,7 +143,7 @@ Smith J, Brown R. Introduction to microbiology. 2nd ed. London: Academic Press; 
 **Formatted Citation:**
 
 ```text
-Johnson E. Digital health systems [Internet]. New York: Tech Publishing; 2021 [cited 2024 Jan 15]. Available from: https://example.com/digital-health
+[1] Johnson E. Digital health systems [Internet]. New York: Tech Publishing; 2021 [cited 2024 Jan 15]. Available from: https://example.com/digital-health
 ```
 
 ---
@@ -167,7 +182,7 @@ Johnson E. Digital health systems [Internet]. New York: Tech Publishing; 2021 [c
 **Formatted Citation:**
 
 ```text
-Anderson M. Molecular mechanisms. In: Wilson D, editor. Advances in biochemistry. 3rd ed. Boston: Scientific Press; 2021. p. 123-45.
+[1] Anderson M. Molecular mechanisms. In: Wilson D, editor. Advances in biochemistry. 3rd ed. Boston: Scientific Press; 2021. p. 123-45.
 ```
 
 ---
@@ -199,7 +214,7 @@ Anderson M. Molecular mechanisms. In: Wilson D, editor. Advances in biochemistry
 **Formatted Citation:**
 
 ```text
-World Health Organization. Microbial resistance [Internet]. Geneva: WHO; 2022 [cited 2024 Jan 15]. Available from: https://www.who.int/microbial-resistance
+[1] World Health Organization. Microbial resistance [Internet]. Geneva: WHO; 2022 [cited 2024 Jan 15]. Available from: https://www.who.int/microbial-resistance
 ```
 
 ### Web Pages - Special Notes
@@ -242,7 +257,7 @@ World Health Organization. Microbial resistance [Internet]. Geneva: WHO; 2022 [c
 **Formatted Citation:**
 
 ```text
-National Institute of Health. Annual health statistics. Washington (DC): US Department of Health; 2023. Report No.: NIH-2023-045.
+[1] National Institute of Health. Annual health statistics. Washington (DC): US Department of Health; 2023. Report No.: NIH-2023-045.
 ```
 
 ---
@@ -278,7 +293,7 @@ National Institute of Health. Annual health statistics. Washington (DC): US Depa
 **Formatted Citation:**
 
 ```text
-Peterson A. Genetic markers in cancer research [Doctoral dissertation]. [Stockholm]: Karolinska Institutet; 2023.
+[1] Peterson A. Genetic markers in cancer research [Doctoral dissertation]. [Stockholm]: Karolinska Institutet; 2023.
 ```
 
 ### Thesis/Dissertation - Special Notes
@@ -318,7 +333,7 @@ Peterson A. Genetic markers in cancer research [Doctoral dissertation]. [Stockho
 **Formatted Citation:**
 
 ```text
-Nielsen H. Innovations in medical imaging. Paper presented at: International Medical Conference; 2023 Jun 15; Paris, France.
+[1] Nielsen H. Innovations in medical imaging. Paper presented at: International Medical Conference; 2023 Jun 15; Paris, France.
 ```
 
 ### Conference Papers - Example (Published in Proceedings)
@@ -336,7 +351,7 @@ Nielsen H. Innovations in medical imaging. Paper presented at: International Med
 **Formatted Citation:**
 
 ```text
-Nielsen H. Innovations in medical imaging. In: Proceedings of the International Medical Conference. London: Medical Society Press; 2023. p. 45-52.
+[1] Nielsen H. Innovations in medical imaging. In: Proceedings of the International Medical Conference. London: Medical Society Press; 2023. p. 45-52.
 ```
 
 ---
@@ -493,7 +508,7 @@ Use the **Medium** field to specify the type of software/application/AI tool:
 **Formatted Citation:**
 
 ```text
-OpenAI. ChatGPT, ver. 4.0 [Large language model]. San Francisco: OpenAI; 2024 [cited 2024 Feb 20]. Available from: https://openai.com/chatgpt
+[1] OpenAI. ChatGPT, ver. 4.0 [Large language model]. San Francisco: OpenAI; 2024 [cited 2024 Feb 20]. Available from: https://openai.com/chatgpt
 ```
 
 ### Software/AI Tools - Special Notes
@@ -660,4 +675,4 @@ If you encounter formatting issues:
 
 ---
 
-Last Updated: 2026-02-20
+Last Updated: 2026-09-24
