@@ -25,7 +25,7 @@
     <category field="generic-base"/>
     <category field="medicine"/>
     <summary>Customized Vancouver style for Karolinska Institutet (Supports AI, Video, Images) based on Vancouver style as outlined by International Committee of Medical Journal Editors Uniform Requirements for Manuscripts Submitted to Biomedical Journals: Sample References</summary>
-    <updated>2026-09-24T17:22:00+02:00</updated>
+    <updated>2026-09-26T18:30:30+02:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
   </info>
   <locale xml:lang="en">
@@ -66,17 +66,27 @@
   <macro name="publisher">
     <choose>
       <if type="article-journal article-magazine article-newspaper" match="none">
-        <group delimiter=": " suffix=";">
-          <choose>
-            <if type="thesis">
-              <text variable="publisher-place" prefix="[" suffix="]"/>
-            </if>
-            <else>
+        <choose>
+          <if type="dataset">
+            <group delimiter=": ">
               <text variable="publisher-place"/>
-            </else>
-          </choose>
-          <text variable="publisher"/>
-        </group>
+              <text variable="publisher"/>
+            </group>
+          </if>
+          <else>
+            <group delimiter=": " suffix=";">
+              <choose>
+                <if type="thesis">
+                  <text variable="publisher-place" prefix="[" suffix="]"/>
+                </if>
+                <else>
+                  <text variable="publisher-place"/>
+                </else>
+              </choose>
+              <text variable="publisher"/>
+            </group>
+          </else>
+        </choose>
       </if>
     </choose>
   </macro>
@@ -130,6 +140,18 @@
                 </group>
                 <text variable="URL"/>
               </group>
+            </else-if>
+          </choose>
+        </else-if>
+
+        <!-- Datasets: DOI → URL -->
+        <else-if type="dataset">
+          <choose>
+            <if variable="DOI">
+              <text variable="DOI" prefix="DOI: "/>
+            </if>
+            <else-if variable="URL">
+              <text variable="URL"/>
             </else-if>
           </choose>
         </else-if>
@@ -255,6 +277,10 @@
           </else-if>
         </choose>
       </else-if>
+      <else-if type="dataset">
+        <text variable="title"/>
+        <text value=" [dataset]"/>
+      </else-if>
       <else>
         <text variable="title"/>
       </else>
@@ -339,6 +365,15 @@
       </if>
     </choose>
   </macro>
+  <macro name="dataset-details">
+    <group delimiter=". ">
+      <date variable="issued">
+        <date-part name="year"/>
+      </date>
+      <text macro="publisher"/>
+      <text macro="accessed-date"/>
+    </group>
+  </macro>
   <citation collapse="citation-number">
     <sort>
       <key variable="citation-number"/>
@@ -360,16 +395,23 @@
         <text macro="author"/>
         <text macro="title"/>
       </group>
-      <group delimiter=" " suffix="." prefix=" ">
-        <text macro="editor"/>
-        <text macro="container-title"/>
-        <text macro="publisher"/>
-        <group>
-          <text macro="date"/>
-          <text macro="journal-location"/>
-          <text macro="pages"/>
-        </group>
-      </group>
+      <choose>
+        <if type="dataset">
+          <text macro="dataset-details" prefix=" " suffix="."/>
+        </if>
+        <else>
+          <group delimiter=" " suffix="." prefix=" ">
+            <text macro="editor"/>
+            <text macro="container-title"/>
+            <text macro="publisher"/>
+            <group>
+              <text macro="date"/>
+              <text macro="journal-location"/>
+              <text macro="pages"/>
+            </group>
+          </group>
+        </else>
+      </choose>
       <group prefix=" ">
         <text macro="report-details" suffix=". "/>
         <text macro="access"/>
